@@ -1,0 +1,41 @@
+.nav-bar {
+    background-color: #1565C0;
+    color: #FFFFFF;
+    position: fixed;
+    top: 0;
+    z-index: 99;
+}
+
+button:focus {
+    outline: none;
+    border: 0;
+}
+
+.user-avatar {
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.navbar {
+    height: 100vh;
+    position: fixed;
+    display: inline !important;
+    z-index: 2;
+    top: 0;
+    left: 0;
+    background: #FFFFFF;
+    overflow-x: hidden;
+    transition: width .3s;
+    padding-top: 20px;
+
+    i {
+        cursor: pointer;
+    }
+
+    button {
+        font-size: medium;
+        line-height: 3rem;
+    }
+}

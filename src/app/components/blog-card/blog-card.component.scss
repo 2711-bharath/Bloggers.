@@ -1,0 +1,30 @@
+.blog-card {
+    margin-bottom: 15px;
+}
+
+.blog-title {
+    text-decoration: none;
+}
+
+a:hover {
+    color: indianred;
+}
+
+.spinner-container{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+}
+        
+.container {
+    margin-top: 80px;
+}
+
+.ngx-pagination a:not([href]):not([class]), a:not([href]):not([class]):hover {
+    color: white;
+}
+
+.ng-star-inserted {
+    color: white;
+}

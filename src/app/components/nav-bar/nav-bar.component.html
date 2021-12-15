@@ -1,0 +1,62 @@
+<mat-toolbar class="nav-bar navbar-dark bg-dark mat-elevation-z2">
+    <div fxHide.gt-xs>
+        <button mat-icon-button (click)="openSidebar()">
+            <mat-icon #toggleBtn>menu</mat-icon>
+        </button>
+    </div>
+    <button mat-button [routerLink]='["/"]'> <span class="text-bolder fs-5">BLOGGERS.</span> </button>
+    <div fxFlex fxLayout fxLayoutAlign="end" fxHide.xs>
+        <button mat-button [routerLink]='["/"]'> Home </button>
+        <button mat-button [routerLink]='["view-blogs"]'> View Blogs </button>
+        <ng-container *ngIf="appUser">
+            <button mat-button [routerLinkActive]='["link-active"]' [routerLink]='["/addpost"]'> Add Post </button>
+        </ng-container>
+        <span class="spacer"></span>
+        <ng-template #anonymousUser>
+            <button mat-button (click)="login()">Login with Google</button>
+        </ng-template>
+        <ng-container *ngIf="appUser; else anonymousUser">
+            <img mat-card-avatar class="user-avatar" [src]="appUser.photoURL">
+            <button mat-button [matMenuTriggerFor]="menu">
+                {{appUser.name}}<mat-icon>arrow_drop_down</mat-icon>
+            </button>
+            <mat-menu #menu="matMenu">
+                <button mat-menu-item [routerLinkActive]='["link-active"]' [routerLink]='["/my-blog"]'> My Posts </button>
+                <button mat-menu-item (click)=logout()>Logout</button>
+            </mat-menu>
+        </ng-container>
+    </div>
+</mat-toolbar>
+
+<nav class="navbar navbar-light bg-light" [ngStyle]="{'width': sideNavOpen? '250px':'0px'}">
+    <div class="d-flex justify-content-end mt-5 pt-2">
+        <i class="fas fa-times fa-lg text-dark pe-3 " (click)="closeSidebar()"></i>
+    </div>
+    <div class="ms-2">
+        <ng-container *ngIf="appUser">
+            <div class="text-center">
+                <img [src]="appUser.photoURL" class="border rounded-circle" alt="avatar">
+                <br>
+                <div class="text-muted">{{appUser.email}}</div>
+                <button mat-button >{{appUser.name}}</button>
+            </div>
+        </ng-container>
+        <br>
+        <button mat-button [routerLink]='["/"]'> Home </button>
+        <br>
+        <button mat-button [routerLink]='["view-blogs"]'> View Blogs </button>
+        <ng-container *ngIf="appUser">
+            <br>
+            <button mat-button [routerLinkActive]='["link-active"]' [routerLink]='["/addpost"]'> Add Post </button>
+        </ng-container>
+        <ng-container *ngIf="appUser; else anonymousUser">
+            <br>
+            <button mat-button [routerLinkActive]='["link-active"]' [routerLink]='["/my-blog"]'> My Posts </button>
+            <br>
+            <button mat-button (click)=logout()>Logout</button>
+        </ng-container>
+        <ng-template #anonymousUser>
+            <button mat-button (click)="login()">Login with Google</button>
+        </ng-template>
+    </div>
+</nav>

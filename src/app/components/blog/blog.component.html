@@ -1,0 +1,24 @@
+<div class="container mt-5">
+    <div class="row mt-5 pt-3">
+        <div class="col-md-2 col-xl-3"></div>
+        <div class="col-sm-12 col-md-8 col-xl-6">
+            <div class="docs-example-viewer-wrapper bg-dark shadow-lg text-white shadow mt-5 rounded">
+                <h1 class="entry-title">{{postData.title}}</h1>
+                <div class="text-center mx-3 my-1">
+                    <img [src]="postData.imageUrl" alt="image" class="img-fluid">
+                </div>
+                <mat-card-subtitle class="blog-info mt-1">
+                    <i class="fa fa-calendar me-1" aria-hidden="true"></i>
+                    {{postData.createdDate | date: 'longDate'}}
+                    <i class="fa fa-user mx-1" aria-hidden="true"></i> {{postData.author}}
+                    <i class="fas fa-at mx-1" aria-hidden="true"></i> {{postData.email}}
+                </mat-card-subtitle>
+                <mat-divider></mat-divider>
+                <div class="docs-example-viewer-body fs-6">
+                    <div [innerHTML]="postData.content"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-2 col-xl-3"></div>
+    </div>
+</div>

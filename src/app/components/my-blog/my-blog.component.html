@@ -1,0 +1,16 @@
+<div class="row left-panel">
+    <div class="col-xl-3 col-md-12 col-sm-12 mt-5 pt-5" *ngIf="appUser">
+        <div class="card text-white bg-dark border-0">
+            <div class="d-flex justify-content-center pt-4">
+                <img [src]="appUser.photoURL" class="user-avatar" alt="Avatar">
+            </div>
+            <div class="card-body text-center">
+                <div class="text-muted mb-1">{{appUser.email}}</div>
+                <h5 class="card-title">{{appUser.name}}</h5>
+            </div>
+        </div>
+    </div>
+    <div class="col-xl-9 col-md-12 col-sm-12">
+        <app-blog-card [show]="['user']"></app-blog-card>
+    </div>
+</div>

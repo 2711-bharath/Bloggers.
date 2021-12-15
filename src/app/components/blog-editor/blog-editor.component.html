@@ -1,0 +1,40 @@
+<div class="container">
+    <h1 class="text-white">{{formTitle}} Post</h1>
+    <hr />
+    <form #myForm="ngForm" (ngSubmit)="myForm.form.valid && saveBlogPost()"
+    accept-charset="UTF-8" novalidate>
+        <input type="text" class="blogHeader" placeholder="Add title..." 
+        class="form-control" name="postTitle" #postTitle="ngModel"
+        [(ngModel)]="postData.title" required/>
+        <span class="text-danger" *ngIf="myForm.submitted &&
+        postTitle.errors?.required">
+        Title is required
+        </span>
+        <br />
+        <input class="form-control" type="file" id="file" name="userPhoto"
+            accept="image/*"
+            (change)="onFileSelect($event)"
+            autocomplete="off"
+        />
+        <br>
+        <span class="text-danger my-3" *ngIf="imageError">
+        Image is required
+        </span>
+        <div *ngIf = "imageData">
+            <img class="w-50 mx-auto d-block my-3 text-white" [src]="imageData" [alt]="">
+        </div>
+        <br>
+        <div class="form-group">
+            <ckeditor name="myckeditor" [config]="ckeConfig" [(ngModel)]="postData.content" debounce="300" [editor]="Editor"></ckeditor>
+        </div>
+        <div class="form-group mt-3 d-flex justify-content-end">
+            <button type="submit" mat-raised-button color="primary" class="mx-1">
+                <div class="spinner-border text-light spinner-border-sm me-1" role="status" *ngIf="isAdding">
+                    <span class="visually-hidden">Loading...</span>
+                </div>      
+                Save
+            </button>
+        <button type=" button" mat-raised-button color="warn" (click)="cancel()">CANCEL</button>
+        </div>
+    </form>
+</div>
