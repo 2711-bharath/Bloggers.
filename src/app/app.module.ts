@@ -21,6 +21,7 @@ import { ToastrModule } from 'ngx-toastr';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { AuthGuard } from './guards/auth.guard';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { FooterComponent } from './components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     BlogComponent,
     MyBlogComponent,
     ViewBlogsComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,

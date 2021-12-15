@@ -5,3 +5,4 @@ export { BlogEditorComponent } from "./blog-editor/blog-editor.component";
 export { BlogCardComponent } from './blog-card/blog-card.component';
 export { BlogComponent } from "./blog/blog.component";
 export { MyBlogComponent } from "./my-blog/my-blog.component";
+export { FooterComponent } from "./footer/footer.component";
