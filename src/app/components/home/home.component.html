@@ -13,7 +13,14 @@
             <h1 class="display-1 lh-lg fw-bolder">Bloggers.</h1>
             <p class="lh-lg fw-bold">Publish your passions, your way</p>
             <p class="lh-lg">Create a unique and beautiful blog. It’s easy and free.</p>
-            <a class="btn btn-warning mt-5 fw-bold px-4 py-3" [routerLinkActive]='["link-active"]' [routerLink]='["/addpost"]'>Create your blog</a>    
+            <button class="btn btn-warning mt-5 fw-bold px-4 py-3" (click)="openLogin()">Create
+                <span *ngIf="appUser">
+                    your post
+                </span>
+                <span *ngIf="!appUser">
+                    your blog
+                </span>
+            </button>    
         </div>
     </div>
 </div>

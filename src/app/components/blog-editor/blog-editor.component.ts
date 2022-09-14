@@ -95,6 +95,7 @@ export class BlogEditorComponent implements OnInit, OnDestroy {
 
   setPostFormData(postFormData) {
     this.postData.title = postFormData.title;
+    this.postData.imageUrl = postFormData.imageUrl;
     this.postData.content = postFormData.content;
   }
 
